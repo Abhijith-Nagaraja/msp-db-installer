@@ -34,14 +34,92 @@
 
 	<div class="container-fluid">
 		<div class="page-header">
-			<h4>This page helps you to setup MySql Database for Monitor
-				Stock Price application</h4>
+			<h3>This page helps you to setup MySql Database for Monitor
+				Stock Price application.</h3>
+			<h4>You need to perform this operation only once or when you delete your database</h4>
 		</div>
 
 		<div class="row">
-			<div class="col-md-6"></div>
-			<div class="col-md-6"></div>
+			<div class="col-md-6">
+				<form action="">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="page-header">
+								<h4>Setup</h4>
+								<h5>Once you click the execute, all the required tables will be generated</h5>
+							</div>
+
+							<div class="form-group">
+								<label for="url">URL</label> <input type="text"
+									class="form-control" id="url" name="url"
+									placeholder="Enter Connection string" required='true'>
+							</div>
+							<div class="form-group">
+								<label for="username">User</label> <input type="text"
+									class="form-control" id="username" placeholder="Enter Username"
+									name="username" required='true'>
+							</div>
+							<div class="form-group">
+								<label for="password">Password</label> <input type="password"
+									name="password" class="form-control" id="password"
+									placeholder="Enter Password" required='true'>
+							</div>
+							<button type="submit" class="btn btn-default">Execute</button>
+							<span id = "success"></span>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="page-header">
+							<h4>Field Details</h4>
+						</div>
+						<b>URL</b><br/>
+						This is the connection string for your database/schema.<br/>
+						Do not include username and password in the connection string<br/>
+						<i>Example:</i> "jdbc:mysql://localhost:3306/lm"
+						<br/><br/>
+						<b>Username</b><br/>
+						Username association with your database/schema<br/>
+						<i>Example:</i> "abhi"
+						<br/><br/>
+						<b>Password</b><br/>
+						Password for the given username<br/>
+						<i>Example:</i> "password"
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#success").attr('class', '');
+			$("form").submit(function() {
+				$.post("./CreateDb", {
+					url : $('#url').val(),
+					username : $('#username').val(),
+					password : $('#password').val()
+				}, function(data, status) {
+					if(data != "Success")
+					{
+						$("#success").attr('class', 'label label-danger');
+						$("#success").html('FAILURE: Something has gone wrong. Make sure Database/schema is present and is empty otherwise check the input');
+					}
+					else
+					{	
+						$("#success").attr('class', 'label label-success');
+						$("#success").html('Success!');
+					}
+				}).fail(function(data) {
+					$("#success").attr('class', 'label label-danger');
+					$("#success").html('FAILURE: Something has gone wrong. Make sure Database/schema is present and is empty otherwise check the input');
+				});return false;
+			});
+		});
+	</script>
 </body>
 </html>
