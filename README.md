@@ -34,7 +34,7 @@
           </tr>
         </tbody>
       </table><br/>
-4. Start the Tomcat server
+4. Start the Tomcat server<br/>
       ![Step 4](./images/step4.jpg)<br/><br/>
 5. Open the browser, go to "[your server address with port]://[war-name]/"
       ![Step 5](./images/step5.jpg)<br/>
