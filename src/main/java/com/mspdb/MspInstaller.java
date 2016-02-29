@@ -34,7 +34,7 @@ public class MspInstaller
 	//Query for creating Audit table
 	public void createAuditTable() throws SQLException
 	{
-		String query = "CREATE TABLE `audit` ( `id` INT NOT NULL AUTO_INCREMENT, `userId` INT NOT NULL, `action` VARCHAR(45) NOT NULL, `result` VARCHAR(45) NOT NULL, PRIMARY KEY (`id`), INDEX `userId_idx` (`userId` ASC), CONSTRAINT `uId`   FOREIGN KEY (`userId`)   REFERENCES `users` (`id`)   ON DELETE NO ACTION   ON UPDATE NO ACTION)";
+		String query = "CREATE TABLE `audit` ( `id` INT NOT NULL AUTO_INCREMENT, `userId` INT NOT NULL, `action` VARCHAR(45) NOT NULL, `result` VARCHAR(45) NOT NULL, PRIMARY KEY (`id`), `timestamp` TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP, INDEX `userId_idx` (`userId` ASC), CONSTRAINT `uId`   FOREIGN KEY (`userId`)   REFERENCES `users` (`id`)   ON DELETE NO ACTION   ON UPDATE NO ACTION)";
 		if ( st != null )
 		{
 			st.executeUpdate( query );
