@@ -1,4 +1,5 @@
 # msp-db-installer
+  A database installer for https://github.com/Abhijith-Nagaraja/monitor-stock-price/
 
 ###Prerequisites
 1. Java version 1.8
