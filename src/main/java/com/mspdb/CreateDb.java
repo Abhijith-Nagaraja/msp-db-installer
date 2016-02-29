@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CreateDb
+ * This servlet gets called when execute button is hit. This creates all the tables required for the Monitor-Stock-Price.
  */
 @WebServlet( "/CreateDb" )
 public class CreateDb extends HttpServlet
