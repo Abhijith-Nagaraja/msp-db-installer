@@ -61,6 +61,15 @@ public class CreateDb extends HttpServlet
 			response.getWriter().append( "exists" );
 			e.printStackTrace();
 		}
+		try
+		{
+			installer.createAuditTable();
+		}
+		catch ( SQLException e )
+		{
+			response.getWriter().append( "exists" );
+			e.printStackTrace();
+		}
 		response.getWriter().append( "Success" );
 	}
 
