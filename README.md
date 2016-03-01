@@ -24,7 +24,7 @@
           </tr>
         </tbody>
       </table><br/>
-3. Copy the war folder from projects target directory into your Tomcat server webapp directory and renmae if required
+3. Copy the war folder from projects target directory into your Tomcat server webapp directory and rename if required
       <table>
         <tbody>
           <tr>
